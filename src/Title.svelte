@@ -11,4 +11,4 @@
   }
 </style>
 
-<p class="title">CS178 Todo</p> <!--Headings text-exp-->
+<p class="title">{title}</p> <!--Headings text-exp-->

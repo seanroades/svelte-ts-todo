@@ -2,6 +2,7 @@
 	import Title from './Title.svelte';
 	import Subtitle from './Subtitle.svelte';
 	import Copyright from './Copyright.svelte';
+	import Doge from './Doge.svelte';
 	let todos: string[] = [];
 	let task: string = "";
 	let filter: string[] = "all";
@@ -30,6 +31,13 @@
 		todos.splice(i, 1);
 		todos = [...todos];
 	}
+	let referrer = document.referrer;
+
+	var level = "unknown"
+
+	navigator.getBattery().then(function(battery) {
+		level = battery.level * 100;
+	});
 </script>
 
 <style>
@@ -49,7 +57,7 @@
 	.todo { /**Class*/
 		padding: 20px;
 		background: #f5f5f5;
-		width: 450px;
+		width: 500px;
 		border-radius: 20px;
 	}
 	.todo > div { /**Class*/
@@ -118,15 +126,19 @@
 	.button {
 		min-width: 100px;
 	}
+	.buttonLong {
+		min-width: 200px;
+	}
 </style>
 
 <div class="container">
-	<Title title="CS178 Todo List" /> <!--Component Prop -->
+	<Doge />
+	<Title title="CS178 ToDOGE List" /> <!--Component Prop -->
 	<Subtitle subtitle="By Sean Roades" /> <!--Component Prop -->
 	<div class="todo">
 		<div class = "form">
 			<input type="text" bind:value={task} /> <!--Properties--> <!--Binding-->
-			<button class="button" on:click={addTask}>Add Task</button> <!--Properties-->
+			<button class="buttonLong" on:click={addTask}>Add {todos.length > 0  ? "another" : 'your first'} ToDOGE</button> <!--Properties Reactivity-->
 		</div>
 		<div class="tasks">
 			{#each todos as todo, i} <!--controlFlow template-->
@@ -167,17 +179,19 @@
 			<button 
 				class="{filter === 'all' ? 'active' : 'button'}" 
 				on:click={() => {filter = 'all'}}>
-				All
+				All ({todos.length}) <!--Reactivity-->
 			</button> <!--controlFlow Properties Button-->
 			<button 
 				class="{filter === 'completed' ? 'active' : 'button'}" 
 				on:click={() => {filter = 'completed'}}> 
 				Completed
 			</button> <!--controlFlow Properties Button Attributes-->
-			<button class="{filter === 'incomplete' ? 'active' : 'button'}" on:click={() => {filter = 'incomplete'}}>
+			<button class="{filter === 'incomplete' ? 'active' : 'button'}" on:click={() => {filter = 'incomplete'}}> <!--Reactivity-->
 				Incomplete
 			</button> <!--controlFlow Properties Button Attributes-->
 		</div>
 	</div>
+	<br />
+	<p style="width: 500px; text-align: center">By the way, it's great to have you visiting from {referrer}, {level < 30 ? "but you might want to stop visiting them and focus on your todo as your battery is currently at" : "and you have plently of time to spent on your todo list as your battery is at"} {level}%</p>
 	<Copyright disclaimer="All rights reserved" name="copyrightsAreLegitIfTheyExistOnAWebsite©"/> <!--Component Props-->
 </div>
