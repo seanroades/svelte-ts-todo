@@ -34,7 +34,7 @@
 		margin: 0px;
 		padding: 0px
 	}
-	.container {
+	.container { /**Class*/
 		width: 100%;
 		height: 100vh;
 		background: white;
@@ -43,28 +43,28 @@
 		align-items: center;
 		flex-direction: column;
 	}
-	.todo {
+	.todo { /**Class*/
 		padding: 20px;
 		background: #f5f5f5;
 		width: 450px;
 		border-radius: 20px;
 	}
-	.todo > div {
+	.todo > div { /**Class*/
 		margin: 20px 0px;
 	}
 	.todo .form{
-		display: flex;
+		display: flex; /* LocalStyle */
 	}
 	.todo .form input,
 	.todo .form button {
 		border: 1px solid #4db848;
 		height: 40px;
 		outline: none;
-		border-radius: 20px;
+		border-radius: 20px; /* LocalStyle */
 	}
 	.todo .form input {
 		flex: 1;
-		text-indent: 20px;
+		text-indent: 20px; /* LocalStyle */
 	}
 	.todo .form button {
 		width: 60px;
@@ -138,35 +138,35 @@
 			<button class="button" on:click={addTask}>Add Task</button> <!--Properties-->
 		</div>
 		<div class="tasks">
-			{#each todos as todo, i} <!--controlFlow--> <!--template-->
-				{#if filter === 'all'} <!--controlFlow-->
+			{#each todos as todo, i} <!--controlFlow template-->
+				{#if filter === 'all'} <!--controlFlow Nesting-->
 					<div class="task">
-						<div>{todo.task}</div> <!--format--> <!--stateful-->
+						<div>{todo.task}</div> <!--format stateful text-exp-->
 						<button 
 							class="{(todo.status === 'completed') ? 'active' : ''}" 
 							on:click={() => {markComplete(i)}}> <!--Attributes-->
 							&#10004;
-						</button> <!--controlFlow--> <!--Properties--> <!--Button-->
-						<button on:click={() => {removeTask(i)}}>&#10006</button> <!--Attributes--> <!--Button-->
+						</button> <!--controlFlow Properties Button-->
+						<button on:click={() => {removeTask(i)}}>&#10006</button> <!--Attributes Button-->
 					</div>
-				{:else if filter === 'completed'} <!--controlFlow--> <!--template-->
-					{#if todo.status === 'completed'} <!--controlFlow-->
+				{:else if filter === 'completed'} <!--controlFlow template-->
+					{#if todo.status === 'completed'} <!--controlFlow Nesting-->
 						<div class="task"> 
-							<div>{todo.task}</div> <!--format--> <!--stateful-->
+							<div>{todo.task}</div> <!--format stateful-->
 							<button on:click={() => removeTask(i)}> <!--Attributes-->
 								&#10006
-							</button> <!--controlFlow--> <!--Button-->
+							</button> <!--controlFlow Button-->
 						</div>
 					{/if} <!--controlFlow-->
-				{:else} <!--controlFlow--> <!--template-->
-					{#if todo.status === 'pending'} <!--controlFlow-->
+				{:else} <!--controlFlow template-->
+					{#if todo.status === 'pending'} <!--controlFlow Nesting-->
 						<div class="task">
-							<div>{todo.task}</div> <!--format--> <!--stateful-->
+							<div>{todo.task}</div> <!--format stateful-->
 							<button 
 								class="{todo.status=='completed' ? 'active' : ''}"
 								on:click={() => (markComplete(i))}> <!--Attributes-->
 							&#10004
-							</button> <!--controlFlow--> <!--Properties--> <!--Button-->
+							</button> <!--controlFlow Properties Button-->
 						</div>
 					{/if} <!--controlFlow-->
 				{/if} <!--controlFlow-->
@@ -177,15 +177,15 @@
 				class="{filter === 'all' ? 'active' : 'button'}" 
 				on:click={() => {filter = 'all'}}>
 				All
-			</button> <!--controlFlow--> <!--Properties--> <!--Button-->
+			</button> <!--controlFlow Properties Button-->
 			<button 
 				class="{filter === 'completed' ? 'active' : 'button'}" 
 				on:click={() => {filter = 'completed'}}> 
 				Completed
-			</button> <!--controlFlow--> <!--Properties--> <!--Button-->
+			</button> <!--controlFlow Properties Button Attributes-->
 			<button class="{filter === 'incomplete' ? 'active' : 'button'}" on:click={() => {filter = 'incomplete'}}>
 				Incomplete
-			</button> <!--controlFlow--> <!--Properties--> <!--Button-->
+			</button> <!--controlFlow Properties Button Attributes-->
 		</div>
 	</div>
 </div>
