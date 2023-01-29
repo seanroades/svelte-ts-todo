@@ -1,4 +1,7 @@
 <script lang="ts">
+	import Title from './Title.svelte';
+	import Subtitle from './Subtitle.svelte';
+	import Copyright from './Copyright.svelte';
 	let todos: string[] = [];
 	let task: string = "";
 	let filter: string[] = "all";
@@ -112,26 +115,14 @@
 		color: white;
 		font-weight: bold;
 	}
-	.title {
-		color: #4db848;
-		font-size: 36px;
-		margin-bottom: 10px;
-		font-weight: bold;
-	}
-	.subtitle {
-		color: #666666;
-		font-size: 12px;
-		margin-bottom: 10px;
-		font-weight: bold;
-	}
 	.button {
 		min-width: 100px;
 	}
 </style>
 
 <div class="container">
-	<p class="title">CS178 Todo</p> <!--Headings-->
-	<p class="subtitle">By Sean Roades</p>
+	<Title title="CS178 Todo List" /> <!--Component Prop -->
+	<Subtitle subtitle="By Sean Roades" /> <!--Component Prop -->
 	<div class="todo">
 		<div class = "form">
 			<input type="text" bind:value={task} /> <!--Properties--> <!--Binding-->
@@ -188,4 +179,5 @@
 			</button> <!--controlFlow Properties Button Attributes-->
 		</div>
 	</div>
+	<Copyright disclaimer="All rights reserved" name="copyrightsAreLegitIfTheyExistOnAWebsite©"/> <!--Component Props-->
 </div>
