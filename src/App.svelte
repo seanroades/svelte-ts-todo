@@ -141,7 +141,6 @@
 
 <div class="container">
 	{#if width > 200}
-		{width}
 		<Doge />
 		<Title title="CS178 ToDOGE List" /> <!--Component Prop -->
 		<Subtitle subtitle="By Sean Roades" /> <!--Component Prop -->
