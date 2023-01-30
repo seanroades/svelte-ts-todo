@@ -36,13 +36,16 @@
 		referrer = document.referrer;
 	}
 
-	var level = "unknown"
+	var level = 100
 
 	let width = window.innerWidth;
 
-	navigator.getBattery().then(function(battery) {
-		level = battery.level * 100;
-	});
+
+	if (typeof navigator.getBattery !== 'undefined') {
+		navigator.getBattery().then(function(battery) {
+			level = battery.level * 100;
+		});
+	}
 </script>
 
 <style>
@@ -137,7 +140,7 @@
 </style>
 
 <div class="container">
-	{#if width > 600}
+	{#if width > 200}
 		{width}
 		<Doge />
 		<Title title="CS178 ToDOGE List" /> <!--Component Prop -->
