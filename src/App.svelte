@@ -36,10 +36,9 @@
 		referrer = document.referrer;
 	}
 
-	var level = 100
+	var level = "unknown"
 
 	let width = window.innerWidth;
-
 
 	if (typeof navigator.getBattery !== 'undefined') {
 		navigator.getBattery().then(function(battery) {
@@ -201,7 +200,7 @@
 			</div>
 		</div>
 		<br />
-		<p style="width: 500px; text-align: center">By the way, it's great to have you visiting from {referrer === "" ? "from a random link" : referrer}, {level < 30 ? "but you might want to stop visiting them and focus on your todo as your battery is currently at" : "and you have plently of time to spent on your todo list as your battery is at"} {level}%</p>
+		<p style="width: 500px; text-align: center">By the way, it's great to have you visiting from {referrer === "" ? "from a random link" : referrer}, {level < 30 ? "but you might want to stop visiting them and focus on your todo as your battery is currently at" : "and you have plenty of time to spend on your todo list as your battery is at"} {level}%</p>
 		<Copyright disclaimer="All rights reserved" name="copyrightsAreLegitIfTheyExistOnAWebsite©"/> <!--Component Props-->
 	{:else}
 		<p style="width: 270px">Please visit with a larger screen size. This is not made for mobile</p>
