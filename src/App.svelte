@@ -1,6 +1,4 @@
 <script lang="ts">
-	import Title from './Title.svelte';
-	import Subtitle from './Subtitle.svelte';
 	import Copyright from './Copyright.svelte';
 	import Doge from './Doge.svelte';
   import Navbar from './Navbar.svelte';
@@ -14,7 +12,8 @@
 	let task: string = "";
 	let filter: string = "all";
 
-	const baseURL = "https://todogeapi.herokuapp.com/"
+	const baseURL = "https://todogeapi.herokuapp.com";
+	console.log("baseurl:", baseURL)
 
 	async function modifyList(list) {
 		try {
@@ -178,6 +177,7 @@
 	}
 
 	async function makeListInDatabase(listName, listPin) {
+		console.log("baseurl:", baseURL)
 		try {
 			const returnValue = await fetch(`${baseURL}/api/makeList`, 
 				{

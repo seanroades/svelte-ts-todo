@@ -51,7 +51,7 @@ button {
   <div class="navbar-brand">
     <img src={'todoge.png'} width="60" height="60" alt="doge logo">
   </div>
-  <Title title="CS178 ToDOGE List" /> <!--Component Prop -->
+  <Title title="ToDOGE List" /> <!--Component Prop -->
   <div class="rightBlob">
     <!-- <p>Sean</p> -->
     <!-- <p className="rightMargin">Account: seanroade...</p> -->

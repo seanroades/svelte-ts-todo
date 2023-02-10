@@ -1,6 +1,6 @@
 <script>
   export let close = () => {}
-	const baseURL = "https://todogeapi.herokuapp.com/"
+	const baseURL = "https://todogeapi.herokuapp.com"
   var isSadDoge = false;
   function setIsSadDoge(emotion) {
     if (emotion !== isSadDoge) {

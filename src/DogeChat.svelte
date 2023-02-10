@@ -1,7 +1,7 @@
 <script>
   let dogeData = ""
   let humanResponse = ""
-  const baseURL = "https://todogeapi.herokuapp.com/"
+  const baseURL = "https://todogeapi.herokuapp.com"
   export let close = () => {};
   export let chatipdata;
 
