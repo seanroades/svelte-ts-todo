@@ -53,8 +53,6 @@ button {
   </div>
   <Title title="ToDOGE List" /> <!--Component Prop -->
   <div class="rightBlob">
-    <!-- <p>Sean</p> -->
-    <!-- <p className="rightMargin">Account: seanroade...</p> -->
     <button on:click={openPopup}>Upgrade</button>
   </div>
 </nav>
