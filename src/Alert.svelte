@@ -1,5 +1,6 @@
 <script>
   export let close = () => {}
+	const baseURL = "https://todogeapi.herokuapp.com/"
   var isSadDoge = false;
   function setIsSadDoge(emotion) {
     if (emotion !== isSadDoge) {
@@ -10,7 +11,7 @@
   const stripePromise = loadStripe("pk_live_51HvHlHA20LnLaUFwl6mW1xeD7Q663eUUevLKZaLprVbEdgxpzpmltPF0tocPaS7m22sw7SuqlAp3V6xzzPWBRG3P006kMecetF");
   async function startCheckout() {
     try {
-      const returnValue = await fetch(`http://localhost:5001/api/upgrade`, 
+      const returnValue = await fetch(`${baseURL}/api/upgrade`, 
       {
         method: 'GET'
       });

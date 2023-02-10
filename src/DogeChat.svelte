@@ -1,8 +1,10 @@
 <script>
   let dogeData = ""
   let humanResponse = ""
+  const baseURL = "https://todogeapi.herokuapp.com/"
   export let close = () => {};
   export let chatipdata;
+
   async function dogeChat() {
     if (humanResponse.length < 10) {
       alert("Please enter a longer response. MR_DOGE does not have the patience to read your short responses.")
@@ -21,7 +23,7 @@
     console.log(chatlog)
     
     try {
-      const returnValue = await fetch(`http://localhost:5001/api/dogechat`, 
+      const returnValue = await fetch(`${baseURL}/api/dogechat`, 
       {
         method: 'POST',
         headers: {

@@ -14,9 +14,11 @@
 	let task: string = "";
 	let filter: string = "all";
 
+	const baseURL = "https://todogeapi.herokuapp.com/"
+
 	async function modifyList(list) {
 		try {
-			const returnValue = await fetch(`http://localhost:5001/api/modifyList`, 
+			const returnValue = await fetch(`${baseURL}/api/modifyList`, 
 				{
 					method: 'POST',
 					headers: {
@@ -177,7 +179,7 @@
 
 	async function makeListInDatabase(listName, listPin) {
 		try {
-			const returnValue = await fetch(`http://localhost:5001/api/makeList`, 
+			const returnValue = await fetch(`${baseURL}/api/makeList`, 
 				{
 					method: 'POST',
 					headers: {
@@ -210,7 +212,7 @@
 
 	async function getListFromDB(listname, listpin) {
 		try {
-			const returnValue = await fetch(`http://localhost:5001/api/getList`, 
+			const returnValue = await fetch(`${baseURL}/api/getList`, 
 				{
 					method: 'POST',
 					headers: {
